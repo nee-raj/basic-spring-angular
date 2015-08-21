@@ -11,8 +11,8 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="java.sharma.www">
-		<level value="info" />
+	<logger name="org.chikoo">
+		<level value="all" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -34,7 +34,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="all" />
 		<appender-ref ref="console" />
 	</root>
 	
