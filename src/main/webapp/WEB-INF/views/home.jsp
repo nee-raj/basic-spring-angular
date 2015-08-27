@@ -1,14 +1,24 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<!doctype html>
 <html>
 <head>
-	<title>Home</title>
+<title>Hello AngularJS</title>
+<link href="css/angular-bootstrap.css" rel="stylesheet">
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+</style>
 </head>
-<body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<body ng-app="hello">
+  <div class="container">
+    <h1>Greeting</h1>
+    <div ng-controller="home" ng-cloak class="ng-cloak">
+      <p>The ID is {{greeting.id}}</p>
+      <p>The content is {{greeting.content}}</p>
+    </div>
+  </div>
+  <script src="js/ui-bootstrap-tpls-0.13.3.min.js" type="text/javascript"></script>
+  <script src="js/hello.js"></script>
 </body>
 </html>
