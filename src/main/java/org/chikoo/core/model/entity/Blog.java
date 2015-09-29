@@ -1,9 +1,18 @@
-package org.chikoo.core.entity;
+package org.chikoo.core.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Blog {
-
+	@Id @GeneratedValue
 	private Long id;
+	
+	@ManyToOne
 	private Account account;
+	
 	private String title;
 
 	public Long getId() {

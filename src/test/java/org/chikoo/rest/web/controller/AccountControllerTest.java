@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyBoolean;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.isNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import javax.xml.ws.Response;
 
-import org.chikoo.core.entity.Account;
+import org.chikoo.core.model.entity.Account;
 import org.chikoo.core.service.AccountService;
 import org.chikoo.core.service.exception.AccountExistsException;
 import org.junit.Before;
@@ -122,4 +123,13 @@ public class AccountControllerTest {
 		.andExpect(jsonPath("$.password", is(nullValue())));
 	}	
 	
+	@Test
+	public void searchUserAccountNotFound() throws Exception {
+		
+		when(accountService.findAccount(anyLong())).thenReturn(null);
+		
+		mockMvc.perform(get("/rest/accounts/1"))
+			.andDo(print()).andExpect(status().isNotFound());
+		
+	}
 }

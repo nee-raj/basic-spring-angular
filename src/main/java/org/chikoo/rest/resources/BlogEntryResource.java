@@ -1,6 +1,6 @@
 package org.chikoo.rest.resources;
 
-import org.chikoo.core.entity.Blog;
+import org.chikoo.core.model.entity.Blog;
 import org.springframework.hateoas.ResourceSupport;
 
 public class BlogEntryResource extends ResourceSupport {

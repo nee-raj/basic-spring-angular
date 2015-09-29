@@ -3,8 +3,8 @@ package org.chikoo.rest.resources.asm;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
-import org.chikoo.core.entity.BlogEntry;
-import org.chikoo.core.entity.SearchResults;
+import org.chikoo.core.model.entity.BlogEntry;
+import org.chikoo.core.model.entity.SearchResults;
 import org.chikoo.rest.resources.BlogEntryResource;
 import org.chikoo.rest.resources.SearchResultsResource;
 import org.chikoo.rest.web.controller.BlogEntryController;

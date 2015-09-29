@@ -1,6 +1,6 @@
 package org.chikoo.core.service;
 
-import org.chikoo.core.entity.BlogEntry;
+import org.chikoo.core.model.entity.BlogEntry;
 
 public interface BlogEntryService {
 	public BlogEntry findBlogEntry(Long id);

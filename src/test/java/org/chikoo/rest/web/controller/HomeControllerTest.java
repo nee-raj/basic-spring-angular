@@ -8,8 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
-import org.chikoo.core.entity.SearchResults;
+import org.chikoo.core.model.entity.SearchResults;
 import org.chikoo.core.service.SearchService;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +18,11 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 public class HomeControllerTest {
@@ -57,4 +61,6 @@ public class HomeControllerTest {
 	}
 	
 	
+	
+
 }

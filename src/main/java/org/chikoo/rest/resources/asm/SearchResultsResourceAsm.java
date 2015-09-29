@@ -1,6 +1,6 @@
 package org.chikoo.rest.resources.asm;
 
-import org.chikoo.core.entity.SearchResults;
+import org.chikoo.core.model.entity.SearchResults;
 import org.chikoo.rest.resources.SearchResultsResource;
 import org.chikoo.rest.web.controller.HomeController;
 import org.springframework.asm.SpringAsmInfo;

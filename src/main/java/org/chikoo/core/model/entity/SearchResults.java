@@ -1,7 +1,12 @@
-package org.chikoo.core.entity;
+package org.chikoo.core.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class SearchResults {
-
+	@Id @GeneratedValue
 	private Long id;
 	private String searchTerm = "" ;
 

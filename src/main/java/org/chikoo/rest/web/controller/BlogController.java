@@ -1,18 +1,21 @@
 package org.chikoo.rest.web.controller;
 
-import javax.inject.Inject;
-
-import org.chikoo.core.entity.Blog;
+import org.chikoo.core.model.entity.Blog;
 import org.chikoo.core.service.BlogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class BlogController {
 	
-	@Inject
+	@Autowired
 	private BlogService blogService ;
 	
-	public ResponseEntity<Blog> getBlogById(Long id) {
+	@RequestMapping("/rest/blog/{id}")
+	public ResponseEntity<Blog> getBlogById( Long id) {
 		Blog blog =  blogService.find(id);
 		return new ResponseEntity<Blog>( blog, HttpStatus.OK);
 	}

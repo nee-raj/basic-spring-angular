@@ -2,7 +2,7 @@ package org.chikoo.rest.web.controller;
 
 import java.lang.invoke.MethodHandles;
 
-import org.chikoo.core.entity.SearchResults;
+import org.chikoo.core.model.entity.SearchResults;
 import org.chikoo.core.service.SearchService;
 import org.chikoo.rest.resources.SearchResultsResource;
 import org.chikoo.rest.resources.asm.SearchResultsResourceAsm;
@@ -28,17 +28,14 @@ public class HomeController {
 	
 	private SearchService service;
 	
+	public HomeController( ) {
+		
+	}
+	
 	public HomeController( SearchService service) {
 		this.service = service;
 	}
-	
-	
-	@RequestMapping(value = "/welcome", method = RequestMethod.POST)
-	public @ResponseBody SearchResults home(@RequestBody SearchResults searchResults) {
-		if( StringUtils.isEmpty(searchResults.getSearchTerm()))  
-				searchResults.setSearchTerm("No Search Term Found.");
-		return searchResults;
-	}
+
 
 	@RequestMapping(value = "/rest/search-results/{id}", method = RequestMethod.GET)
 	public ResponseEntity<SearchResultsResource> getSearchResultsById( @PathVariable Long id) {

@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="java.sharma.www">
+	<logger name="org.chikoo">
 		<level value="info" />
 	</logger>
 	
@@ -31,6 +31,22 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+	<logger name="org.apache.commons">
+		<level value="info" />
+	</logger>
+
+<!--  hibernate Test  -->
+<logger name="org.hibernate.SQL" additivity="false" >   
+ <level value="DEBUG" />    
+ <appender-ref ref="console" />
+</logger>
+
+<logger name="org.hibernate.type" additivity="false" >
+ <level value="TRACE" />
+ <appender-ref ref="console" />
+</logger>
+<!-- Logging -->
 
 	<!-- Root Logger -->
 	<root>

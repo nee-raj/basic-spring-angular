@@ -3,7 +3,7 @@ package org.chikoo.rest.resources.asm;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
-import org.chikoo.core.entity.Blog;
+import org.chikoo.core.model.entity.Blog;
 import org.chikoo.rest.resources.BlogResource;
 import org.chikoo.rest.web.controller.BlogController;
 import org.springframework.hateoas.Link;

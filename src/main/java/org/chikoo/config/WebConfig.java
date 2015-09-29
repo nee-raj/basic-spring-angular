@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.chikoo.web.controller")
+@ComponentScan(basePackages = { "org.chikoo.rest.web.controller", "org.chikoo.core.service.impl" })
 public class WebConfig {
 
 	@Bean

@@ -1,6 +1,6 @@
 package org.chikoo.rest.resources;
 
-import org.chikoo.core.entity.Account;
+import org.chikoo.core.model.entity.Account;
 import org.springframework.hateoas.ResourceSupport;
 
 public class AccountResource extends ResourceSupport {

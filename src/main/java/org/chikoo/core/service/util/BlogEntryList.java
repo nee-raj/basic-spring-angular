@@ -3,7 +3,7 @@ package org.chikoo.core.service.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.chikoo.core.entity.BlogEntry;
+import org.chikoo.core.model.entity.BlogEntry;
 
 public class BlogEntryList {
 
