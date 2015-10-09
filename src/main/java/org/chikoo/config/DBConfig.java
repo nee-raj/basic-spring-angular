@@ -16,7 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("org.chikoo.core.repository.jpa")
+@ComponentScan("org.chikoo.core.repository")
 @EnableTransactionManagement
 public class DBConfig {
 	 @Bean

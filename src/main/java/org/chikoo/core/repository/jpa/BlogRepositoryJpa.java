@@ -7,19 +7,20 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.chikoo.core.model.entity.Blog;
+import org.chikoo.core.repository.BlogRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BlogRepositoryJpa {
+public class BlogRepositoryJpa implements BlogRepository{
 	@PersistenceContext
 	private EntityManager em;
 
-	Blog createBlog(Blog data) {
+	public Blog createBlog(Blog data) {
 		em.persist(data);
 		return data;
 	}
 
-	Blog findBlog(long id) {
+	public Blog findBlog(long id) {
 		Query query = em.createQuery("select b from Blog b where b.id = ?");
 		query.setParameter(0, id);
 		List<Blog> blogList = query.getResultList();
