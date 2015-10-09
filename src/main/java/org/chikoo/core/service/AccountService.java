@@ -8,8 +8,8 @@ import org.chikoo.core.service.util.AccountList;
 
 public interface AccountService {
 	AccountList findAllAccounts();
-	Account findAccount(Long id);
+	Account findAccount(long id);
 	Account createAccount(Account account);
 	Account findAccountByName(String name);
-	Blog createBlog(Long accountId, Blog data);
+	Blog createBlog(long accountId, Blog data);
 }

@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class BlogServiceImpl implements BlogService {
 
 	@Override
-	public Blog find(Long id) {
+	public Blog find(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Blog createBlogEntry(Long id, BlogEntry data) {
+	public Blog createBlogEntry(long id, BlogEntry data) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -30,7 +30,7 @@ public class BlogServiceImpl implements BlogService {
 	}
 
 	@Override
-	public BlogEntryList findAllBlogEntries(Long blogId) {
+	public BlogEntryList findAllBlogEntries(long blogId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

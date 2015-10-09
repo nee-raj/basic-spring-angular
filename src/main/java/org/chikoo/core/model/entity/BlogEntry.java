@@ -8,16 +8,17 @@ import javax.persistence.ManyToOne;
 
 public class BlogEntry {
 
-	private Long id;
+	private long id;
 	private String title;
 	
 	@ManyToOne
 	private Blog blog;
 	
-	public Long getId() {
+	
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitle() {

@@ -24,7 +24,7 @@ public class AccountServiceImpl implements AccountService {
 	private BlogRepository blogRepo;
 
 	@Override
-	public Account findAccount(Long id) {
+	public Account findAccount(long id) {
 		Account account = accountRepo.findAccount(id);
 		if (account != null) {
 			return account;
@@ -44,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Blog createBlog(Long accountId, Blog data) {
+	public Blog createBlog(long accountId, Blog data) {
 		Account account = accountRepo.findAccount(accountId);
 		if (account != null) {
 			throw new AccountExistsException();
@@ -63,4 +63,6 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }

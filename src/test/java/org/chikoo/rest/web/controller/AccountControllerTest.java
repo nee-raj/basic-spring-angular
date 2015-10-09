@@ -17,11 +17,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.ws.Response;
 
 import org.chikoo.core.model.entity.Account;
 import org.chikoo.core.service.AccountService;
 import org.chikoo.core.service.exception.AccountExistsException;
+import org.chikoo.core.service.util.AccountList;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -132,4 +136,35 @@ public class AccountControllerTest {
 			.andDo(print()).andExpect(status().isNotFound());
 		
 	}
+	
+	@Test
+	public void testfindAllAccounts() throws Exception {
+		
+		Account account1 = new Account();
+		Account account2 = new Account();
+		List<Account> accounts = new ArrayList<Account>();
+		accounts.add(account1);
+		accounts.add(account2);
+		
+		AccountList accountList = new AccountList(accounts);
+		when(accountService.findAllAccounts()).thenReturn(accountList);
+		
+		mockMvc.perform(get("/rest/accounts/"))
+			.andDo(print()).andExpect(status().isOk());
+		
+	}
+	
+	@Test
+	public void testfindAllAccountsWithAccountName() throws Exception {
+		
+		Account account = new Account();
+		account.setName("Neeraj");
+		when(accountService.findAccountByName("Neeraj")).thenReturn(account);
+		
+		mockMvc.perform(get("/rest/accounts/").param("name", "Neeraj"))
+			.andDo(print()).andExpect(status().isOk()).andExpect(jsonPath("$..name").value("Neeraj"));
+
+		
+	}
+	
 }

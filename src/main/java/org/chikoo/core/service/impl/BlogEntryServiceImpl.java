@@ -9,19 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 public class BlogEntryServiceImpl implements BlogEntryService {
 
 	@Override
-	public BlogEntry findBlogEntry(Long id) {
+	public BlogEntry findBlogEntry(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BlogEntry deleteBlogEntry(Long id) {
+	public BlogEntry deleteBlogEntry(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BlogEntry updateBlogEntry(Long id, BlogEntry data) {
+	public BlogEntry updateBlogEntry(long id, BlogEntry data) {
 		// TODO Auto-generated method stub
 		return null;
 	}

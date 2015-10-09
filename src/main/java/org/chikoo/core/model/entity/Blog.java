@@ -8,18 +8,20 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Blog {
 	@Id @GeneratedValue
-	private Long id;
+	private long id;
 	
 	@ManyToOne
 	private Account account;
 	
 	private String title;
 
-	public Long getId() {
+	
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -45,10 +45,10 @@ public class BlogControllerTest {
 	@Test
 	public void testGetABlogById() throws Exception {
 		Blog blog = new Blog();
-		blog.setId(1L);
+		blog.setId(1);
 		blog.setAccount((Account) anyObject());
 		blog.setTitle("Neeraj's Blog");
-		when(blogService.find(1L)).thenReturn(blog);
+		when(blogService.find(1)).thenReturn(blog);
 		mockMvc.perform(get("/rest/blog/1")).andDo(print()).andExpect(status().isOk())
 		.andExpect(jsonPath("$.title", is("Neeraj's Blog")))
 		.andExpect( jsonPath("$.id" , is(notNullValue()) ) );

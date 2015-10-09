@@ -18,7 +18,7 @@ public class AccountRepositoryJpa implements AccountRepository {
 	private EntityManager em;
 	
 	@Override
-	public Account findAccount(Long id) {
+	public Account findAccount(long id) {
 		return em.find(Account.class, id);
 	}
 	@Override

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface BlogRepository {
 
 	Blog createBlog(Blog data);
-	
+	Blog findBlog(long id);
 	
 }
   

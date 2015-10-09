@@ -19,7 +19,7 @@ public class BlogRepositoryJpa {
 		return data;
 	}
 
-	Blog findBlog(Long id) {
+	Blog findBlog(long id) {
 		Query query = em.createQuery("select b from Blog b where b.id = ?");
 		query.setParameter(0, id);
 		List<Blog> blogList = query.getResultList();
