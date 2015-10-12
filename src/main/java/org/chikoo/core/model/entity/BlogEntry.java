@@ -5,14 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
+@Entity
 public class BlogEntry {
-
+	@Id @GeneratedValue
 	private long id;
 	private String title;
 	
 	@ManyToOne
 	private Blog blog;
+	private String content;
 	
 	
 	public long getId() {
@@ -32,6 +33,14 @@ public class BlogEntry {
 	}
 	public void setBlog(Blog blog) {
 		this.blog = blog;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 }

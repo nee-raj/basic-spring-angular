@@ -9,6 +9,10 @@ public class BlogList {
 
 	private List<Blog> blogs = new ArrayList<Blog>();
 
+	public BlogList(List<Blog> listOfBlogs) {
+		this.blogs = listOfBlogs;
+	}
+
 	public List<Blog> getBlogs() {
 		return blogs;
 	}

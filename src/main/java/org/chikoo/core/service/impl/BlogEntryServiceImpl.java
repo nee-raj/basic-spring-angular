@@ -1,6 +1,9 @@
 package org.chikoo.core.service.impl;
 
+import javax.inject.Inject;
+
 import org.chikoo.core.model.entity.BlogEntry;
+import org.chikoo.core.repository.BlogEntryRepository;
 import org.chikoo.core.service.BlogEntryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,22 +11,23 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class BlogEntryServiceImpl implements BlogEntryService {
 
+	@Inject
+	private BlogEntryRepository blogEntryRepo; 
+	
+	
 	@Override
 	public BlogEntry findBlogEntry(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogEntryRepo.findBlogEntry(id);
 	}
 
 	@Override
 	public BlogEntry deleteBlogEntry(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogEntryRepo.deleteBlogEntry(id);
 	}
 
 	@Override
 	public BlogEntry updateBlogEntry(long id, BlogEntry data) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogEntryRepo.updateBlogEntry(id, data);
 	}
 	
 }

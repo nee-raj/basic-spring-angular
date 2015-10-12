@@ -11,7 +11,7 @@ public class Blog {
 	private long id;
 	
 	@ManyToOne
-	private Account account;
+	private Account owner;
 	
 	private String title;
 
@@ -25,20 +25,21 @@ public class Blog {
 		this.id = id;
 	}
 
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
 	public String getTitle() {
 		return title;
+	}
+
+	public Account getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Account owner) {
+		this.owner = owner;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+	
 }

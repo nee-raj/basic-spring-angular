@@ -11,7 +11,9 @@ import org.chikoo.core.repository.BlogRepository;
 import org.chikoo.core.service.AccountService;
 import org.chikoo.core.service.exception.AccountDoesNotExistException;
 import org.chikoo.core.service.exception.AccountExistsException;
+import org.chikoo.core.service.exception.BlogExistsException;
 import org.chikoo.core.service.util.AccountList;
+import org.chikoo.core.service.util.BlogList;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,12 +47,17 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Blog createBlog(long accountId, Blog data) {
+		Blog blogSameTitle = blogRepo.findBlogByTitle(data.getTitle());
+		if (blogSameTitle != null) {
+			throw new BlogExistsException();
+		}
 		Account account = accountRepo.findAccount(accountId);
 		if (account != null) {
 			throw new AccountExistsException();
-		} else {
-			return blogRepo.createBlog(data);
 		}
+		Blog createdBlog = blogRepo.createBlog(data);
+		createdBlog.setOwner(account);
+		return createdBlog;
 	}
 
 	@Override
@@ -60,9 +67,16 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Account findAccountByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return accountRepo.findAccountByName(name);
 	}
 
-	
+	@Override
+	public BlogList findBlogsByAccount(long accountId) {
+	Account account = accountRepo.findAccount(accountId);
+	if(account== null) {
+		throw new AccountDoesNotExistException();
+	}	
+	return new BlogList(blogRepo.findBlogsByAccount(accountId));
+	}
+
 }

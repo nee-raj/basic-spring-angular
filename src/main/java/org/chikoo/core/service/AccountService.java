@@ -5,6 +5,7 @@ import java.util.List;
 import org.chikoo.core.model.entity.Account;
 import org.chikoo.core.model.entity.Blog;
 import org.chikoo.core.service.util.AccountList;
+import org.chikoo.core.service.util.BlogList;
 
 public interface AccountService {
 	AccountList findAllAccounts();
@@ -12,4 +13,5 @@ public interface AccountService {
 	Account createAccount(Account account);
 	Account findAccountByName(String name);
 	Blog createBlog(long accountId, Blog data);
+	BlogList findBlogsByAccount(long id);
 }

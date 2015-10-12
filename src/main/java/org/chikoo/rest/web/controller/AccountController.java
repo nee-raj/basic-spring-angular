@@ -8,13 +8,18 @@ import javax.inject.Inject;
 
 import org.chikoo.core.model.entity.Account;
 import org.chikoo.core.service.AccountService;
+import org.chikoo.core.service.exception.AccountDoesNotExistException;
 import org.chikoo.core.service.exception.AccountExistsException;
 import org.chikoo.core.service.util.AccountList;
+import org.chikoo.core.service.util.BlogList;
 import org.chikoo.rest.exception.ConflictException;
+import org.chikoo.rest.exception.NotFoundException;
 import org.chikoo.rest.resources.AccountListResource;
 import org.chikoo.rest.resources.AccountResource;
+import org.chikoo.rest.resources.BlogListResource;
 import org.chikoo.rest.resources.asm.AccountListResourceAsm;
 import org.chikoo.rest.resources.asm.AccountResourceAsm;
+import org.chikoo.rest.resources.asm.BlogListResourceAsm;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +68,7 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
-	public ResponseEntity<AccountResource> getAccount(@PathVariable Long accountId) {
+	public ResponseEntity<AccountResource> getAccount(@PathVariable long accountId) {
 		Account account = accountService.findAccount(accountId);
 		if (account != null) {
 			AccountResource res = new AccountResourceAsm().toResource(account);
@@ -72,4 +77,19 @@ public class AccountController {
 			return new ResponseEntity<AccountResource>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	   @RequestMapping(value="/{accountId}/blogs",
+	            method = RequestMethod.GET)
+	    public ResponseEntity<BlogListResource> findAllBlogs(
+	            @PathVariable long accountId) {
+	        try {
+	            BlogList blogList = accountService.findBlogsByAccount(accountId);
+	            BlogListResource blogListRes = new BlogListResourceAsm().toResource(blogList);
+	            return new ResponseEntity<BlogListResource>(blogListRes, HttpStatus.OK);
+	        } catch(AccountDoesNotExistException exception)
+	        {
+	            throw new NotFoundException(exception);
+	        }
+	    }
+
 }

@@ -5,14 +5,14 @@ import org.springframework.hateoas.ResourceSupport;
 
 public class BlogResource extends ResourceSupport {
 	
-	private Account account;
+	private Account owner;
 	private String title;
 
-	public Account getAccount() {
-		return account;
+	public Account getOwner() {
+		return owner;
 	}
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setOwner(Account account) {
+		this.owner = account;
 	}
 	public String getTitle() {
 		return title;

@@ -7,7 +7,7 @@ import org.chikoo.core.service.util.BlogList;
 import org.springframework.stereotype.Service;
 public interface BlogService {
 	public Blog find(long id);
-	public Blog createBlogEntry(long id, BlogEntry data);
+	public BlogEntry createBlogEntry(long id, BlogEntry data);
 	public BlogList findAllBlogs();
 	public BlogEntryList findAllBlogEntries(long blogId);
 }
