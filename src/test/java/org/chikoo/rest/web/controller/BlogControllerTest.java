@@ -46,7 +46,7 @@ public class BlogControllerTest {
 	public void testGetABlogById() throws Exception {
 		Blog blog = new Blog();
 		blog.setId(1);
-		blog.setAccount((Account) anyObject());
+		blog.setOwner((Account) anyObject());
 		blog.setTitle("Neeraj's Blog");
 		when(blogService.find(1)).thenReturn(blog);
 		mockMvc.perform(get("/rest/blog/1")).andDo(print()).andExpect(status().isOk())
