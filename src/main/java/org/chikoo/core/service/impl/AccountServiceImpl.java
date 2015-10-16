@@ -72,11 +72,11 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public BlogList findBlogsByAccount(long accountId) {
-	Account account = accountRepo.findAccount(accountId);
-	if(account== null) {
-		throw new AccountDoesNotExistException();
-	}	
-	return new BlogList(blogRepo.findBlogsByAccount(accountId));
+		Account account = accountRepo.findAccount(accountId);
+		if (account == null) {
+			throw new AccountDoesNotExistException();
+		}
+		return new BlogList(blogRepo.findBlogsByAccount(accountId));
 	}
 
 }

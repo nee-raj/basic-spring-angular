@@ -25,12 +25,8 @@ public class BlogRepositoryJpa implements BlogRepository {
 	public List<Blog> findBlogsByAccount(long accountId) {
 		Query query = em.createQuery("Select b from Blog b where b.owner.id = ?");
 		query.setParameter(1, accountId);
-		List<Blog> blogs = query.getResultList();
-		if (blogs.isEmpty()) {
-			return null;
-		} else {
-			return blogs;
-		}
+		return query.getResultList();
+		
 	}
 
 	@Override

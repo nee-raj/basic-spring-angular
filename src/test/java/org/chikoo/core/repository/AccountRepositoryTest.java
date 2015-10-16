@@ -58,8 +58,6 @@ public class AccountRepositoryTest {
 	@Transactional
 	public void testGetAllAccounts() {
 		List<Account> accounts = new ArrayList<Account>();
-		AccountList accountsList = new AccountList(accounts);
-		accounts.add(account);
-		assertEquals(accountsList, repo.findAllAccounts());
+		assertEquals(accounts, repo.findAllAccounts());
 	}
 }
